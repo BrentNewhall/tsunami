@@ -18,14 +18,14 @@ export class ScriptService {
       .subscribe(data => this.readScript(data));
   }
 
-  public currentDialogue(): Observable<String> {
+  public currentDialogue(): Observable<string> {
     if( this.scriptLines.length > 0 ) {
       return of(this.scriptLines[this.currentLine]["line"]);
     }
     return of("THE END");
   }
 
-  public currentCharacter(): Observable<String> {
+  public currentCharacter(): Observable<string> {
     if( this.scriptLines.length > 0 ) {
       const charName = this.scriptLines[this.currentLine]["charName"];
       let charFullName = "";
@@ -71,7 +71,7 @@ export class ScriptService {
     }
   }
 
-  private getCharImage( name, line ) {
+  private getCharImage( name: string, line: object ): string {
     let result = "";
     if( name in line ) {
       result = line[name];
@@ -83,7 +83,7 @@ export class ScriptService {
     return "assets/characters/" + result;
   }
 
-  private parseCharacter( line: String ): Object {
+  private parseCharacter( line: string ): object {
     let fields = line.split("|").map( f => f.trim() );
     let character = {};
     if( fields.length > 1 ) {
@@ -96,7 +96,7 @@ export class ScriptService {
     return character;
   }
 
-  private parseLine( line: String ): Object {
+  private parseLine( line: string ): object {
     let fields = line.split("|").map( f => f.trim() );
     let scriptLine = {};
     scriptLine["charName"] = fields[0];
@@ -108,7 +108,7 @@ export class ScriptService {
     return scriptLine;
   }
 
-  private parseExtraFields( fields, start ): Object {
+  private parseExtraFields( fields: Array<string>, start: number ): Object {
     let result = {};
     fields.splice(0,start);
     for( const field of fields ) {
@@ -120,7 +120,7 @@ export class ScriptService {
     return result;
   }
 
-  private readScript(data): void {
+  private readScript( data: string ): void {
     let section: String = "header";
     for( const line of data.split("\n") ) {
       const lowerLine = line.toLowerCase().trim();
