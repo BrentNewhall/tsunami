@@ -3,7 +3,7 @@ character | dm | name: Ian
 character | player1 | name: Tara
 BODY
 dm | Welcome to the game! I'm glad you're here. | charLeft: dm-armup | bg: dining-room
-dm | Let me introduce you to my players. | charLeft: dm | bg: dining-room
-dm | This is Tara. | charLeft: dm | charright: player1 | bg: dining-room
+dm | Let me introduce you to my players. | charLeft: dm
+dm | This is Tara. | charLeft: dm | charright: player1
 player1 | Hi! | charLeft: dm | charright: player1-armup | bg: dining-room
 | The End
