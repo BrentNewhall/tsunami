@@ -1,7 +1,11 @@
 HEADER
+# Place any characters here.
 character | dm | name: Ian
 character | player1 | name: Tara
 BODY
+# Write lines of dialogue here.
+# If a long run of multiple contiguous lines use the same image, you only have
+# to specify the image on the first line and last line of the run.
 dm | Welcome to the game! I'm glad you're here. | charLeft: dm-armup | bg: dining-room
 dm | Let me introduce you to my players. | charLeft: dm
 dm | This is Tara. | charLeft: dm | charright: player1

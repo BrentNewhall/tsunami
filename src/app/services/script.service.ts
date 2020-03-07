@@ -141,7 +141,9 @@ export class ScriptService {
         }
       }
       else if( section === "body" ) {
-        this.scriptLines.push( this.parseLine( line ) );
+        if( line[0] !== "#" ) {
+          this.scriptLines.push( this.parseLine( line ) );
+        }
       }
     }
     this.setupImages();
