@@ -9,6 +9,8 @@ export class ScriptService {
   currentLine = 0;
   characters: Array<Object> = [];
   scriptLines: Array<Object> = [];
+  charImageLeft: String = "";
+  charImageRight: String = "";
 
   constructor(private http: HttpClient) {
     this.currentLine = 0;
@@ -32,16 +34,50 @@ export class ScriptService {
     return of("THE END");
   }
 
+  public getLeftCharacterURL(): Observable<String> {
+    return of(this.charImageLeft);
+  }
+
+  public getRightCharacterURL(): Observable<String> {
+    return of(this.charImageRight);
+  }
+
   public advanceDialogue(): void {
     if( this.currentLine < this.scriptLines.length - 1 ) {
       this.currentLine++;
+      this.setupCharImages();
     }
   }
 
   public previousDialogue(): void {
     if( this.currentLine > 0 ) {
       this.currentLine--;
+      this.setupCharImages();
     }
+  }
+
+  private setupCharImages(): void {
+    const line = this.scriptLines[this.currentLine];
+    this.charImageLeft = "";
+    this.charImageRight = "";
+    if( "charleft" in line ) {
+      this.charImageLeft = this.getCharImage( "charleft", line );
+    }
+    if( "charright" in line ) {
+      this.charImageRight = this.getCharImage( "charright", line );
+    }
+  }
+
+  private getCharImage( name, line ) {
+    let result = "";
+    if( name in line ) {
+      result = line[name];
+      if( ! result.includes("-") ) {
+        result += "-neutral";
+      }
+      result += ".png";
+    }
+    return "assets/characters/" + result;
   }
 
   private parseCharacter( line: String ): Object {
@@ -97,6 +133,6 @@ export class ScriptService {
         this.scriptLines.push( this.parseLine( line ) );
       }
     }
-    console.log( this.scriptLines );
+    this.setupCharImages();
   }
 }

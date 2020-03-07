@@ -10,8 +10,10 @@ export class MainComponent implements OnInit {
   currDialogue: String = "";
   currCharacter: String = "";
   gameRunning: Boolean = false;
-
-  constructor(private scriptService: ScriptService) { }
+  charLeftURL: String = "";
+  charRightURL: String = "";
+  
+  constructor(private scriptService: ScriptService) {}
 
   ngOnInit() {
     this.updateUI();
@@ -35,6 +37,8 @@ export class MainComponent implements OnInit {
   updateUI() {
     this.scriptService.currentDialogue().subscribe( line => this.currDialogue = line );
     this.scriptService.currentCharacter().subscribe( char => this.currCharacter = char );
+    this.scriptService.getLeftCharacterURL().subscribe( char => this.charLeftURL = char );
+    this.scriptService.getRightCharacterURL().subscribe( char => this.charRightURL = char );
   }
 
 }
