@@ -1,5 +1,8 @@
-<button (click)="this.startGame()" [style.display]="this.gameRunning ? 'none' : 'inline'">Start</button>
-<div [style.display]="this.gameRunning ? 'block' : 'none'">
+<div class="start-wrapper">
+    <button class="start-button" (click)="this.startGame()" [style.display]="this.gameRunning ? 'none' : 'inline'">Start</button>
+</div>
+<div class="dialogue" [style.display]="this.gameRunning ? 'block' : 'none'">
     <p><span class="charName">{{this.currCharacter}}</span> {{this.currDialogue}}</p>
-    <button (click)="this.previousDialogueLine()">Previous</button> <button (click)="this.nextDialogueLine()">Next</button>
+    <button class="previous-button" (click)="this.previousDialogueLine()">&lt;</button>
+    <button class="next-button" (click)="this.nextDialogueLine()">&gt;</button>
 </div>
