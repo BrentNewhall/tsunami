@@ -9,7 +9,7 @@
 }
 .character {
     position: fixed;
-    top: 25vh;
+    bottom: 0px;
     z-index: 5;
 }
 .left-character {
