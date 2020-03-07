@@ -95,7 +95,7 @@ export class ScriptService {
     let fields = line.split("|").map( f => f.trim() );
     let character = {};
     if( fields.length > 1 ) {
-      character["charName"] = fields[1];
+      character["charName"] = fields[1].toLowerCase();
     }
     if( fields.length > 2 ) {
       const extraFields = this.parseExtraFields( fields, 2 );
@@ -107,7 +107,7 @@ export class ScriptService {
   private parseLine( line: string ): object {
     let fields = line.split("|").map( f => f.trim() );
     let scriptLine = {};
-    scriptLine["charName"] = fields[0];
+    scriptLine["charName"] = fields[0].toLowerCase();
     scriptLine["line"] = fields[1];
     if( fields.length > 2 ) {
       const extraFields = this.parseExtraFields( fields, 2 );

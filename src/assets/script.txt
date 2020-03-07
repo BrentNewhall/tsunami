@@ -4,6 +4,7 @@ character | dm | name: Ian
 character | player1 | name: Tara
 BODY
 # Write lines of dialogue here.
+# Character and image variable names are not case sensitive (dm is the same as DM).
 # If a long run of multiple contiguous lines use the same image, you only have
 # to specify the image on the first line and last line of the run.
 dm | Welcome to the game! I'm glad you're here. | charLeft: dm-armup | bg: dining-room
