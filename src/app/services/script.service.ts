@@ -23,6 +23,12 @@ export class ScriptService {
     return of("THE END");
   }
 
+  public advanceDialogue(): void {
+    if( this.currentLine < this.scriptLines.length - 1 ) {
+      this.currentLine++;
+    }
+  }
+
   private parseCharacter( line: String ): Object {
     let fields = line.split("\t");
     let character = {};

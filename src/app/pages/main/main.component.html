@@ -2,4 +2,5 @@
 <button (click)="this.startGame()" [style.display]="this.gameRunning ? 'none' : 'inline'">Start</button>
 <div [style.display]="this.gameRunning ? 'block' : 'none'">
     <p>{{this.currDialogue}}</p>
+    <button (click)="this.nextDialogueLine()">Next</button>
 </div>
