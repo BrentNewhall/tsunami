@@ -45,7 +45,7 @@ export class ScriptService {
   }
 
   private parseCharacter( line: String ): Object {
-    let fields = line.split("\t");
+    let fields = line.split("|").map( f => f.trim() );
     let character = {};
     if( fields.length > 1 ) {
       character["charName"] = fields[1];
@@ -58,7 +58,7 @@ export class ScriptService {
   }
 
   private parseLine( line: String ): Object {
-    let fields = line.split("\t");
+    let fields = line.split("|").map( f => f.trim() );
     let scriptLine = {};
     scriptLine["charName"] = fields[0];
     scriptLine["line"] = fields[1];
@@ -74,8 +74,8 @@ export class ScriptService {
     fields.splice(0,start);
     for( const field of fields ) {
       if( field.includes(":") ) {
-        const values = field.split(":");
-        result[values[0].trim().toLowerCase()] = values[1].trim();
+        const values = field.split(":").map( f => f.trim() );
+        result[values[0].toLowerCase()] = values[1];
       }
     }
     return result;
