@@ -16,6 +16,9 @@
 .left-character {
     left: 15vw;
 }
+.center-character {
+    left: 40vw;
+}
 .right-character {
     right: 15vw;
 }

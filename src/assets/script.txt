@@ -7,8 +7,8 @@ BODY
 # Character and image variable names are not case sensitive (dm is the same as DM).
 # If a long run of multiple contiguous lines use the same image, you only have
 # to specify the image on the first line and last line of the run.
-dm | Welcome to the game! I'm glad you're here. | charLeft: dm-armup | bg: dining-room
-dm | Let me introduce you to my players. | charLeft: dm
+dm | Welcome to the game! I'm glad you're here. | charCenter: dm-armup | bg: dining-room
+dm | Let me introduce you to my players. | charCenter: dm
 dm | This is Tara. | charLeft: dm | charright: player1
 player1 | Hi! | charLeft: dm | charright: player1-armup | bg: dining-room
 | The End

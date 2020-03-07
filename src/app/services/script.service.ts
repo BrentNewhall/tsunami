@@ -9,9 +9,10 @@ export class ScriptService {
   currentLine = 0;
   characters: Array<Object> = [];
   scriptLines: Array<Object> = [];
-  charImageLeft: String = "";
-  charImageRight: String = "";
-  backgroundImage: String = "";
+  charImageLeft: string = "";
+  charImageCenter: string = "";
+  charImageRight: string = "";
+  backgroundImage: string = "";
 
   constructor(private http: HttpClient) {
     this.currentLine = 0;
@@ -38,10 +39,12 @@ export class ScriptService {
     return of("THE END");
   }
 
-  public getImageURL(placement: string): Observable<String> {
+  public getImageURL(placement: string): Observable<string> {
     switch( placement.toLowerCase() ) {
       case "left":
         return of(this.charImageLeft);
+      case "center":
+        return of(this.charImageCenter);
       case "right":
         return of(this.charImageRight);
       case "bg":
@@ -67,9 +70,13 @@ export class ScriptService {
   private setupImages(): void {
     const line = this.scriptLines[this.currentLine];
     this.charImageLeft = "";
+    this.charImageCenter = "";
     this.charImageRight = "";
     if( "charleft" in line ) {
       this.charImageLeft = this.getImage( "charleft", "characters", line );
+    }
+    if( "charcenter" in line ) {
+      this.charImageCenter = this.getImage( "charcenter", "characters", line );
     }
     if( "charright" in line ) {
       this.charImageRight = this.getImage( "charright", "characters", line );

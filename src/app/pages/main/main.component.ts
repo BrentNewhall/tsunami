@@ -7,12 +7,13 @@ import { ScriptService } from '../../services/script.service';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-  currDialogue: String = "";
-  currCharacter: String = "";
-  gameRunning: Boolean = false;
-  charLeftURL: String = "";
-  charRightURL: String = "";
-  backgroundURL: String = "";
+  currDialogue: string = "";
+  currCharacter: string = "";
+  gameRunning: boolean = false;
+  charLeftURL: string = "";
+  charCenterURL: string = "";
+  charRightURL: string = "";
+  backgroundURL: string = "";
   
   constructor(private scriptService: ScriptService) {}
 
@@ -39,6 +40,7 @@ export class MainComponent implements OnInit {
     this.scriptService.currentDialogue().subscribe( line => this.currDialogue = line );
     this.scriptService.currentCharacter().subscribe( char => this.currCharacter = char );
     this.scriptService.getImageURL("left").subscribe( char => this.charLeftURL = char );
+    this.scriptService.getImageURL("center").subscribe( char => this.charCenterURL = char );
     this.scriptService.getImageURL("right").subscribe( char => this.charRightURL = char );
     this.scriptService.getImageURL("bg").subscribe( img => this.backgroundURL = img );
   }
