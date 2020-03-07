@@ -91,6 +91,30 @@ export class ScriptService {
     return "assets/" + type + "/" + result;
   }
 
+  private readScript( data: string ): void {
+    let section: String = "header";
+    for( const line of data.split("\n") ) {
+      const lowerLine = line.toLowerCase().trim();
+      if( lowerLine === "body" ) {
+        section = "body";
+      }
+      else if( section === "header" ) {
+        if( lowerLine.substring(0,9) === "character" ) {
+          this.characters.push( this.parseCharacter( line ) );
+        }
+      }
+      else if( section === "body" ) {
+        if( line[0] !== "#" ) {
+          const parsedLine = this.parseLine( line );
+          if( Object.keys(parsedLine).length !== 0 ) {
+            this.scriptLines.push( parsedLine );
+          }
+        }
+      }
+    }
+    this.setupImages();
+  }
+
   private parseCharacter( line: string ): object {
     let fields = line.split("|").map( f => f.trim() );
     let character = {};
@@ -105,6 +129,9 @@ export class ScriptService {
   }
 
   private parseLine( line: string ): object {
+    if( ! line.includes("|") ) {
+      return {};
+    }
     let fields = line.split("|").map( f => f.trim() );
     let scriptLine = {};
     scriptLine["charName"] = fields[0].toLowerCase();
@@ -126,26 +153,5 @@ export class ScriptService {
       }
     }
     return result;
-  }
-
-  private readScript( data: string ): void {
-    let section: String = "header";
-    for( const line of data.split("\n") ) {
-      const lowerLine = line.toLowerCase().trim();
-      if( lowerLine === "body" ) {
-        section = "body";
-      }
-      else if( section === "header" ) {
-        if( lowerLine.substring(0,9) === "character" ) {
-          this.characters.push( this.parseCharacter( line ) );
-        }
-      }
-      else if( section === "body" ) {
-        if( line[0] !== "#" ) {
-          this.scriptLines.push( this.parseLine( line ) );
-        }
-      }
-    }
-    this.setupImages();
   }
 }
