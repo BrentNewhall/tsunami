@@ -2,7 +2,7 @@
 
 Tsunami is a visual novel engine that runs in the browser.
 
-Update `assets/script.txt` with your game's script.
+Update `assets/script.txt` with your game's script. Add character images to `assets/characters/`.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.19.
 
