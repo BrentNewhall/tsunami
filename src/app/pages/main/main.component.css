@@ -1,5 +1,6 @@
 .charName {
     font-style: italic;
+    margin-right: 0.5em;
 }
 .dialogue {
     position: fixed;
@@ -11,6 +12,7 @@
     border-radius: 1em;
     padding: 1em;
     font-family: "Caladea", "serif";
+    font-size: 120%;
 }
 .dialogue p {
     margin-block-start: 0em;
@@ -38,5 +40,6 @@ button {
     border: 1px solid black;
     padding: 5px;
     border-radius: 5px;
-    font-family: Verdana;
+    font-family: "Verdana";
+    font-size: 85%;
 }
