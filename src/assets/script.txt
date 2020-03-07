@@ -2,7 +2,7 @@ HEADER
 character | dm | name: Ian
 character | player1 | name: Tara
 BODY
-dm | Welcome to the game! I'm glad you're here. | newchar: dm | newcharposition: left
-dm | Let me introduce you to my players.
+dm | Welcome to the game! I'm glad you're here. | newchar: dm | newcharposition: left | newcharemotion: armup
+dm | Let me introduce you to my players. | newcharemotion: neutral
 dm | This is Tara. | newchar: player1 | newcharposition: right
-player1 | Hi!
+player1 | Hi! | newchar: player1 | newcharemotion: armup
