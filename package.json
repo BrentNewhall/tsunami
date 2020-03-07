@@ -7,7 +7,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "upload": "aws s3 cp ./dist/tsunami/ s3://tsunami-vnovel --recursive"
   },
   "private": true,
   "dependencies": {
