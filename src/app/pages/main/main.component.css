@@ -10,6 +10,7 @@
     border: 1px solid black;
     border-radius: 1em;
     padding: 1em;
+    font-family: "Caladea", "serif";
 }
 .dialogue p {
     margin-block-start: 0em;
@@ -31,4 +32,11 @@
     position: absolute;
     margin: auto;
     top: 50%;
+}
+button {
+    background-color: white;
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 5px;
+    font-family: Verdana;
 }
