@@ -1,7 +1,0 @@
-HEADER
-dm = Ian
-player1 = Tara
-BODY
-dm  "Welcome to the game! I'm glad you're here."    newchar: dm newcharposition: left
-dm  "Let me introduce you to my players."
-dm  "This is Tara"  newchar: player1    newcharposition: right
