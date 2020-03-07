@@ -8,6 +8,7 @@ import { ScriptService } from '../../services/script.service';
 })
 export class MainComponent implements OnInit {
   currDialogue: String;
+  gameRunning: Boolean = false;
 
   constructor(private scriptService: ScriptService) { }
 
@@ -16,6 +17,7 @@ export class MainComponent implements OnInit {
   }
 
   startGame() {
+    this.gameRunning = true;
     this.updateUI();
   }
 
