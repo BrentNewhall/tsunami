@@ -28,7 +28,10 @@ export class ScriptService {
   public currentCharacter(): Observable<String> {
     if( this.scriptLines.length > 0 ) {
       const charName = this.scriptLines[this.currentLine]["charName"];
-      const charFullName = this.characters.find( obj => obj["charName"] === charName )["name"];
+      let charFullName = "";
+      if( charName !== "" ) {
+        charFullName = this.characters.find( obj => obj["charName"] === charName )["name"];
+      }
       return of(charFullName);
     }
     return of("THE END");

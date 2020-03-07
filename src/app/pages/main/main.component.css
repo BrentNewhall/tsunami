@@ -1,6 +1,12 @@
-.charName {
-    font-style: italic;
-    margin-right: 0.5em;
+.character {
+    position: fixed;
+    top: 25vh;
+}
+.left-character {
+    left: 15vw;
+}
+.right-character {
+    right: 15vw;
 }
 .dialogue {
     position: fixed;
@@ -13,9 +19,14 @@
     padding: 1em;
     font-family: "Caladea", "serif";
     font-size: 120%;
+    background-color: white;
 }
 .dialogue p {
     margin-block-start: 0em;
+}
+.charName {
+    font-style: italic;
+    margin-right: 0.5em;
 }
 .next-button {
     position: absolute;
