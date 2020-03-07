@@ -1,7 +1,7 @@
 <div class="game-wrapper" [style.background-image]="'url(' + this.backgroundURL + ')'">
-    <div class="start-wrapper">
+    <div class="start-wrapper" [style.display]="this.gameRunning ? 'none' : 'block'">
         <h1>The Tabletop RPG Visual Novel Experiment</h1>
-        <button class="start-button" (click)="this.startGame()" [style.display]="this.gameRunning ? 'none' : 'inline'">Start</button>
+        <button class="start-button" (click)="this.startGame()">Start</button>
     </div>
     <img class="character left-character" [src]="this.charLeftURL" />
     <img class="character right-character" [src]="this.charRightURL" />
