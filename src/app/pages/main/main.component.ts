@@ -38,9 +38,9 @@ export class MainComponent implements OnInit {
   updateUI() {
     this.scriptService.currentDialogue().subscribe( line => this.currDialogue = line );
     this.scriptService.currentCharacter().subscribe( char => this.currCharacter = char );
-    this.scriptService.getLeftCharacterURL().subscribe( char => this.charLeftURL = char );
-    this.scriptService.getRightCharacterURL().subscribe( char => this.charRightURL = char );
-    this.scriptService.getBackgroundURL().subscribe( img => this.backgroundURL = img );
+    this.scriptService.getImageURL("left").subscribe( char => this.charLeftURL = char );
+    this.scriptService.getImageURL("right").subscribe( char => this.charRightURL = char );
+    this.scriptService.getImageURL("bg").subscribe( img => this.backgroundURL = img );
   }
 
 }

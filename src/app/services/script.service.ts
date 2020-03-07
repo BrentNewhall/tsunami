@@ -38,16 +38,16 @@ export class ScriptService {
     return of("THE END");
   }
 
-  public getLeftCharacterURL(): Observable<String> {
-    return of(this.charImageLeft);
-  }
-
-  public getRightCharacterURL(): Observable<String> {
-    return of(this.charImageRight);
-  }
-
-  public getBackgroundURL(): Observable<String> {
-    return of(this.backgroundImage);
+  public getImageURL(placement: string): Observable<String> {
+    switch( placement.toLowerCase() ) {
+      case "left":
+        return of(this.charImageLeft);
+      case "right":
+        return of(this.charImageRight);
+      case "bg":
+      default:
+        return of(this.backgroundImage);
+      }
   }
 
   public advanceDialogue(): void {
