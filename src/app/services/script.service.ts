@@ -53,33 +53,33 @@ export class ScriptService {
   public advanceDialogue(): void {
     if( this.currentLine < this.scriptLines.length - 1 ) {
       this.currentLine++;
-      this.setupCharImages();
+      this.setupImages();
     }
   }
 
   public previousDialogue(): void {
     if( this.currentLine > 0 ) {
       this.currentLine--;
-      this.setupCharImages();
+      this.setupImages();
     }
   }
 
-  private setupCharImages(): void {
+  private setupImages(): void {
     const line = this.scriptLines[this.currentLine];
     this.charImageLeft = "";
     this.charImageRight = "";
     if( "charleft" in line ) {
-      this.charImageLeft = this.getCharImage( "charleft", "characters", line );
+      this.charImageLeft = this.getImage( "charleft", "characters", line );
     }
     if( "charright" in line ) {
-      this.charImageRight = this.getCharImage( "charright", "characters", line );
+      this.charImageRight = this.getImage( "charright", "characters", line );
     }
     if( "bg" in line ) {
-      this.backgroundImage = this.getCharImage( "bg", "backgrounds", line );
+      this.backgroundImage = this.getImage( "bg", "backgrounds", line );
     }
   }
 
-  private getCharImage( name: string, type: string, line: object ): string {
+  private getImage( name: string, type: string, line: object ): string {
     let result = "";
     if( name in line ) {
       result = line[name];
@@ -144,6 +144,6 @@ export class ScriptService {
         this.scriptLines.push( this.parseLine( line ) );
       }
     }
-    this.setupCharImages();
+    this.setupImages();
   }
 }
