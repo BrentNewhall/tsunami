@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ScriptService {
-  currentLine: Number;
+  currentLine = 0;
   characters: Array<Object> = [];
   scriptLines: Array<Object> = [];
 
@@ -13,6 +14,13 @@ export class ScriptService {
     this.currentLine = 0;
     this.http.get('assets/script.txt', {responseType: 'text'})
       .subscribe(data => this.readScript(data));
+  }
+
+  public currentDialogue(): Observable<String> {
+    if( this.scriptLines.length > 0 ) {
+      return of(this.scriptLines[this.currentLine]["line"]);
+    }
+    return of("THE END");
   }
 
   private parseCharacter( line: String ): Object {
@@ -68,5 +76,6 @@ export class ScriptService {
         this.scriptLines.push( this.parseLine( line ) );
       }
     }
+    console.log( this.scriptLines );
   }
 }
