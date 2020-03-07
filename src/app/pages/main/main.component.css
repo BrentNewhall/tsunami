@@ -1,6 +1,7 @@
 .character {
     position: fixed;
     top: 25vh;
+    z-index: 5;
 }
 .left-character {
     left: 15vw;
@@ -20,6 +21,7 @@
     font-family: "Caladea", "serif";
     font-size: 120%;
     background-color: white;
+    z-index: 10;
 }
 .dialogue p {
     margin-block-start: 0em;
