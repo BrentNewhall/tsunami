@@ -12,6 +12,7 @@ export class MainComponent implements OnInit {
   gameRunning: Boolean = false;
   charLeftURL: String = "";
   charRightURL: String = "";
+  backgroundURL: String = "";
   
   constructor(private scriptService: ScriptService) {}
 
@@ -39,6 +40,7 @@ export class MainComponent implements OnInit {
     this.scriptService.currentCharacter().subscribe( char => this.currCharacter = char );
     this.scriptService.getLeftCharacterURL().subscribe( char => this.charLeftURL = char );
     this.scriptService.getRightCharacterURL().subscribe( char => this.charRightURL = char );
+    this.scriptService.getBackgroundURL().subscribe( img => this.backgroundURL = img );
   }
 
 }

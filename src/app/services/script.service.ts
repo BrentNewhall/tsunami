@@ -11,6 +11,7 @@ export class ScriptService {
   scriptLines: Array<Object> = [];
   charImageLeft: String = "";
   charImageRight: String = "";
+  backgroundImage: String = "";
 
   constructor(private http: HttpClient) {
     this.currentLine = 0;
@@ -45,6 +46,10 @@ export class ScriptService {
     return of(this.charImageRight);
   }
 
+  public getBackgroundURL(): Observable<String> {
+    return of(this.backgroundImage);
+  }
+
   public advanceDialogue(): void {
     if( this.currentLine < this.scriptLines.length - 1 ) {
       this.currentLine++;
@@ -64,14 +69,17 @@ export class ScriptService {
     this.charImageLeft = "";
     this.charImageRight = "";
     if( "charleft" in line ) {
-      this.charImageLeft = this.getCharImage( "charleft", line );
+      this.charImageLeft = this.getCharImage( "charleft", "characters", line );
     }
     if( "charright" in line ) {
-      this.charImageRight = this.getCharImage( "charright", line );
+      this.charImageRight = this.getCharImage( "charright", "characters", line );
+    }
+    if( "bg" in line ) {
+      this.backgroundImage = this.getCharImage( "bg", "backgrounds", line );
     }
   }
 
-  private getCharImage( name: string, line: object ): string {
+  private getCharImage( name: string, type: string, line: object ): string {
     let result = "";
     if( name in line ) {
       result = line[name];
@@ -80,7 +88,7 @@ export class ScriptService {
       }
       result += ".png";
     }
-    return "assets/characters/" + result;
+    return "assets/" + type + "/" + result;
   }
 
   private parseCharacter( line: string ): object {
