@@ -27,6 +27,11 @@ export class MainComponent implements OnInit {
     this.updateUI();
   }
 
+  previousDialogueLine() {
+    this.scriptService.previousDialogue();
+    this.updateUI();
+  }
+
   updateUI() {
     this.scriptService.currentDialogue().subscribe( line => this.currDialogue = line );
     this.scriptService.currentCharacter().subscribe( char => this.currCharacter = char );

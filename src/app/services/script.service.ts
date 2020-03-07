@@ -38,6 +38,12 @@ export class ScriptService {
     }
   }
 
+  public previousDialogue(): void {
+    if( this.currentLine > 0 ) {
+      this.currentLine--;
+    }
+  }
+
   private parseCharacter( line: String ): Object {
     let fields = line.split("\t");
     let character = {};
