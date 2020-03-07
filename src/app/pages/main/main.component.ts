@@ -7,7 +7,8 @@ import { ScriptService } from '../../services/script.service';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-  currDialogue: String;
+  currDialogue: String = "";
+  currCharacter: String = "";
   gameRunning: Boolean = false;
 
   constructor(private scriptService: ScriptService) { }
@@ -28,6 +29,7 @@ export class MainComponent implements OnInit {
 
   updateUI() {
     this.scriptService.currentDialogue().subscribe( line => this.currDialogue = line );
+    this.scriptService.currentCharacter().subscribe( char => this.currCharacter = char );
   }
 
 }
