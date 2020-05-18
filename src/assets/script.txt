@@ -7,8 +7,20 @@ BODY
 # Character and image variable names are not case sensitive (dm is the same as DM).
 # If a long run of multiple contiguous lines use the same image, you only have
 # to specify the image on the first line and last line of the run.
-dm | Welcome to the game! I'm glad you're here. | charCenter: dm-armup | bg: dining-room
-dm | Let me introduce you to my players. | charCenter: dm
-dm | This is Tara. | charLeft: dm | charright: player1
-player1 | Hi! | charLeft: dm | charright: player1-armup | bg: dining-room
-| The End
+dm | Hi! I'm Ian. | charCenter: dm-armup | bg: dining-room
+dm | I run a D&D game. | charCenter: dm
+dm | Yeah, me and every other geek these days, it seems like. | charCenter: dm
+dm | I know why you’re here, though. | charCenter: dm
+dm | You want to run a D&D game, and you want to run it better. | charCenter: dm
+dm | I can help with that. | charCenter: dm
+dm | Today, I'm going to talk about starting a new campaign right, with a thing called "Session Zero." | charCenter: dm
+dm | But first, let me introduce my players. | charCenter: dm
+dm | This is Tara. She's been playing D&D for years. | charLeft: dm | charRight: player1
+player1 | Hi! | charLeft: dm | charRight: player1-armup
+dm | This is Jesse. She's played some other RPGs before but this is her first time playing D&D. | charLeft: dm | charRight: player2
+player2 | Yo. | charLeft: dm | charRight: player2-armup
+dm | And this is Keith. He's never played D&D or any other tabletop RPG before. He's our newbie! | charLeft: dm | charRight: player3-neutral
+player3 | Uh, hi! I hope I don't mess anything up. | charLeft: dm | charRight: player3-neutral | bg: dining-room
+dm | Now, when you start a campaign, you may be thinking you'll just get everyone together, spend an hour or so creating characters, then jump in to a story. | charCenter: dm
+dm | And that, my friend, is asking for a complete and utter disaster. | charCenter: dm-neutral
+| The End | bg: dining-room
