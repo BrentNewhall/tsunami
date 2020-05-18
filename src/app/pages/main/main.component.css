@@ -32,7 +32,7 @@
     border-radius: 1em;
     padding: 1em;
     font-size: 120%;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.9);
     z-index: 10;
 }
 .dialogue p {
